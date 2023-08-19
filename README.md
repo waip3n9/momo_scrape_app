@@ -1,4 +1,4 @@
-# Introduction
+# Introduction to this app
 This app is written in Python as the backend code and some css,html,jinja2, and javascript for the frontend of the website.
 This app uses Flask to create an API that enables users to key in the product that they wish to search in an online shopping website, "momo".
 This app particularly focuses on showing the items that matters most to a user without all the other advertisements which sometimes can be confusing.
