@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<style>
+    .product-image {
+        width: 3cm;
+        height: 3cm;
+        align-items: center;
+    }
+
+    .image-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .back-button {
+        display: block;
+        padding: 4px 6px;
+        margin-top: 10px;
+        background-color: #00d9ff;
+        color: rgb(12, 5, 5);
+        text-decoration: none;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    }
+
+    .text-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .text-container h1, .text-container h2, .text-container h3 {
+        margin: 5px; /* Reduce spacing between text elements */
+    }
+    
+</style>
+
+{% endblock %}
+
+{% block body %}
+<div class="content-wrapper">
+    <div class="image-wrapper">
+        <img src="//image.momoshop.com.tw/ecm/img/cmm/momoco_error.png" alt="Product Image" class="product-image">
+    </div>
+    <div class="text-container">
+        <h1>很抱歉，查無相關商品，您可以調整關鍵字試試看</h1>
+        <h2>Unable to find the product you are looking for. </h2>
+        <h3>Please try again with another keyword.</h3>
+        <a href="{{ url_for('index') }}" class="back-button">Back to Main</a>
+    </div>
+    
+</div>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<style>
+    .product-image {
+        width: 10cm;
+        height: 3cm;
+        align-items: center;
+    }
+
+    .image-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    
+    #loading-message {
+        text-align: center; /* Center the loading message */
+        margin-top: 10px; /* Add margin to separate from the form */
+        color: #007bff; /* Set the color of the loading message */
+    }
+
+    .loading-spinner {
+        display: none;
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        border-top: 4px solid #000;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        animation: spin 1s linear infinite;
+        margin: 50px auto; /* Adjust the margin to center the spinner */
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
+
+{% endblock %}
+
+{% block body %}
+<h1>My First Webscraper App</h1>
+<h2>Momo 購物網簡化版</h2>
+<div class="image-wrapper">
+    <img src="https://img.shopback.com.hk/4T9zTbe9yl0/rs:fit/w:1000/h:0/g:ce/el:1/q:75/bl:0/aHR0cHM6Ly9jbG91ZC5zaG9wYmFjay5jb20vdF9zZF8yNTBfcGFkL3N0b3JlLXNlcnZpY2UtaGsvYXNzZXRzLzcyMTAzL2Y1MmRlZGYwLWVkNGYtMTFlYy05NDMzLTFiYWM4YTM3NDU4YS5wbmc.jpg" alt="Product Image" class="product-image">
+</div>
+<h3>Key in a product that you wish to look for. 請輸入想要搜尋的產品。</h3>
+<form id="scrape-form" method="POST" action="{{ url_for('index') }}">
+    <input type="text" name="keyword" placeholder="請輸入要尋找的產品 Enter Keyword">
+    <button type="submit" onclick="showLoading()">Search product</button>
+</form>
+
+<div class="loading-spinner" id="loading-spinner"></div>
+<p id="loading-message">Scraping will take approximately 1 mins. Thank you for your patience.</p>
+
+
+{% endblock %}
+

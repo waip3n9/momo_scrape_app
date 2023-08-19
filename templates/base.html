@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"> <!--linking to css--> 
+    {% block head %}{% endblock %}
+</head>
+<body>
+    
+    {% block body %}{% endblock %}
+
+    <script>
+        function showLoading() {
+            // Hide the loading spinner and message initially
+            document.getElementById('loading-spinner').style.display = 'none';
+            document.getElementById('loading-message').style.display = 'none';
+    
+            // Show the loading spinner and message
+            document.getElementById('loading-spinner').style.display = 'block';
+            document.getElementById('loading-message').style.display = 'block';
+    
+            // You can add additional logic here to submit the form or perform actions
+    
+            // For this example, let's simulate a delay of 12 seconds
+            setTimeout(function() {
+                // Hide the loading spinner and message after the simulated delay
+                document.getElementById('loading-spinner').style.display = 'none';
+                document.getElementById('loading-message').style.display = 'none';
+    
+                // Submit the form programmatically after loading is complete
+                document.getElementById('scrape-form').submit();
+            }, 120000);
+        }
+    </script>
+ 
+    
+</body>
+</html>

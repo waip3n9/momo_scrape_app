@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<h1>Products info</h1>
+<style>
+    .product-image {
+        width: 3cm;
+        height: 3cm;
+    }
+
+    .centered-table {
+        margin: 0 auto;
+        padding: 0 3cm;
+        border-collapse: collapse; /* Collapse borders for adjacent cells */
+        width: 80%; /* Make the table width 100% of the container */
+    }
+    .centered-table th, .centered-table td {
+        border: 1px solid black; /* Add a 1px solid black border to cells */
+        padding: 3px; /* Add padding to cells for spacing */
+        text-align: center;
+    }
+
+    .centered-table .product-sales-column {
+        width: 120px;
+    }
+
+    .content-wrapper {
+        position: relative; /* Required for positioning */
+        min-height: 100vh; /* Ensure full viewport height */
+    }
+
+    .back-button {
+        display: inline-block;
+        padding: 4px 6px;
+        margin-top: 15px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        position: fixed;
+        bottom: 50px; /* Adjust as needed */
+        right: 10px; /* Adjust as needed */
+    }
+</style>
+
+{% endblock %}
+
+{% block body %}
+<div class="content-wrapper">
+    <table class="centered-table">
+        <tr>
+            <th>Pic</th>
+            <th>Product Name</th>
+            <th>Product Price</th>
+            <th>Product Sales</th>
+            <th>Product Link</th>
+            <!-- <th>Product Prices</th>
+            <th>Product Saless</th> -->
+        </tr>
+        {% for prod in prods %}
+        <tr>
+            <td><img src="{{ prod.Product_Pic }}" alt="Product Image" class="product-image"></td>
+            <td>{{ prod.Product_Name }}</td>
+            <td>{{ prod.Price }}</td>
+            <td class="product-sales-column">
+                {% if prod.Sales == '0' %}
+                    總銷量&lt;50
+                {% else %}
+                    {{ prod.Sales }}
+                {% endif %}
+            </td>
+            <td><a href="{{ prod.Link }}" target="_blank">Link</a></td>
+            <!-- <td>{{ prod.Product_Price }}</td>
+            <td>&gt;{{ prod.Product_Sales|replace('.0','') }}</td> -->
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('index') }}" class="back-button">Back to Search</a>
+</div>
+{% endblock %}
