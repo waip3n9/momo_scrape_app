@@ -18,7 +18,7 @@ def main():
 
     # Connecting to MySQL database
     MYSQL_USERNAME = 'root'
-    MYSQL_PASSWORD = 'bahai1844'
+    MYSQL_PASSWORD = ''
     MYSQL_HOST = 'localhost'
     MYSQL_PORT = '3306'  # MySQL default port
     MYSQL_DATABASE = 'products'
@@ -245,7 +245,7 @@ def scrape_and_store_data(word):
     #—————————————————————————————————————————————————————————————————
 
     username = 'root'
-    password = 'bahai1844'
+    password = ''
     host = 'localhost:3306'  
     database_name = 'products'
 
